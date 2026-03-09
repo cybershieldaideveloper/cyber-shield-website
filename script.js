@@ -159,10 +159,11 @@ if (heroVideo) {
 }
 
 // ===================================
-// PARTICLE ANIMATION (Fallback)
+// PARTICLE ANIMATION (Always Active)
 // ===================================
 const canvas = document.getElementById('particle-canvas');
 if (canvas) {
+    console.log('Initializing particle animation...');
     const ctx = canvas.getContext('2d');
     let particles = [];
     let animationId;
@@ -203,7 +204,11 @@ if (canvas) {
     
     function init() {
         particles = [];
-        const particleCount = Math.min(Math.floor((canvas.width * canvas.height) / 15000), 100);
+        // Reduce particle count on mobile for performance
+        const isMobile = window.innerWidth < 768;
+        const density = isMobile ? 25000 : 15000;
+        const maxParticles = isMobile ? 50 : 100;
+        const particleCount = Math.min(Math.floor((canvas.width * canvas.height) / density), maxParticles);
         for (let i = 0; i < particleCount; i++) {
             particles.push(new Particle());
         }
