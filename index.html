@@ -3,149 +3,378 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cyber-Shield.org - Offensive Security & Red Teaming</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <title>CS Cyber Shield GmbH - Offensive Security & Red Teaming</title>
+    <meta name="description" content="Als zuverlässiger Business-Partner identifizieren, minimieren und verhindern wir umfassend die Cyberrisiken unserer Kunden − damit sie sich auf ihr Kerngeschäft fokussieren können.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="container">
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
             <div class="logo">
-                <img src="logo.png" alt="Cyber-Shield Logo">
-                <h1>Cyber-Shield.org</h1>
+                <img src="assets/images/logo.png" alt="Cyber Shield Logo">
+                <span class="logo-text">Cyber Shield</span>
             </div>
-            <nav>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#redteaming">Red Teaming</a></li>
-                    <li><a href="#c2">C2-as-a-Service</a></li>
-                    <li><a href="#contact">Kontakt</a></li>
-                </ul>
-            </nav>
+            <div class="nav-menu" id="nav-menu">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#mission" class="nav-link">Mission</a>
+                <a href="#services" class="nav-link">Services</a>
+                <a href="#principles" class="nav-link">Prinzipien</a>
+                <a href="#team" class="nav-link">Team</a>
+                <a href="#contact" class="nav-link">Kontakt</a>
+            </div>
+            <div class="nav-toggle" id="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
-    </header>
+    </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero Section mit Video Background -->
     <section id="home" class="hero">
+        <div class="video-container">
+            <video autoplay muted loop playsinline class="hero-video">
+                <source src="https://assets.mixkit.co/videos/preview/mixkit-digital-network-of-the-world-in-blue-3d-30460-large.mp4" type="video/mp4">
+            </video>
+            <div class="video-overlay"></div>
+        </div>
+        <div class="hero-content">
+            <div class="container">
+                <h1 class="hero-title animate-fade-in">
+                    Dein digitaler <span class="highlight">Schutzschild</span><br>
+                    gegen moderne Bedrohungen
+                </h1>
+                <p class="hero-subtitle animate-fade-in-delay">
+                    Offensive Security, Red Teaming & C2-as-a-Service für maximale Widerstandsfähigkeit
+                </p>
+                <div class="hero-cta animate-fade-in-delay-2">
+                    <a href="#services" class="btn btn-primary">Unsere Services entdecken</a>
+                    <a href="#contact" class="btn btn-outline">Kontakt aufnehmen</a>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section id="mission" class="mission">
         <div class="container">
-            <h2>Dein digitaler Schutzschild gegen moderne Bedrohungen.</h2>
-            <p>Offensive Security, Red Teaming & C2-as-a-Service für maximale Widerstandsfähigkeit.</p>
-            <a href="#services" class="btn btn-primary">Unsere Services entdecken</a>
+            <div class="section-header">
+                <span class="section-label">UNSERE MISSION</span>
+                <h2 class="section-title">Bedrohungsakteure chancenlos</h2>
+            </div>
+            <div class="mission-content">
+                <div class="mission-text">
+                    <p>
+                        Unsere Mission ist es, Unternehmen, Institutionen und kritische Infrastrukturen vor wachsenden Cyberangriffen zu schützen. Wir setzen uns leidenschaftlich dafür ein, die Sicherheit von geistigem Eigentum, Forschungsergebnissen und Geschäftsgeheimnissen zu gewährleisten sowie die Effizienz in Produktion und Verwaltung aufrecht zu erhalten und zu maximieren.
+                    </p>
+                </div>
+                <div class="mission-stats">
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="100">0</div>
+                        <div class="stat-label">% Erfolgsrate</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="24">0</div>
+                        <div class="stat-label">/ 7 Support</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="500">0</div>
+                        <div class="stat-label">+ Kunden</div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Services Section -->
     <section id="services" class="services">
         <div class="container">
-            <h3>Unsere Kompetenzen</h3>
-            <div class="service-grid">
-                <div class="service-item">
-                    <img src="icon-redteaming.png" alt="Red Teaming Icon">
-                    <h4>Red Teaming Operations</h4>
-                    <p>Simuliere reale Angriffe, decke Schwachstellen auf und stärke deine Verteidigung.</p>
-                </div>
-                <div class="service-item">
-                    <img src="icon-c2.png" alt="C2 Icon">
-                    <h4>C2-as-a-Service</h4>
-                    <p>Robuste und schwer erkennbare Command-and-Control-Infrastruktur für deine Operationen.</p>
-                </div>
-                <div class="service-item">
-                    <img src="icon-vapt.png" alt="VAPT Icon">
-                    <h4>Vulnerability Assessments & PT</h4>
-                    <p>Umfassende Scans und Penetrationstests zur Identifikation und Behebung von Schwachstellen.</p>
-                </div>
-                <div class="service-item">
-                    <img src="icon-training.png" alt="Training Icon">
-                    <h4>Security Awareness Training</h4>
-                    <p>Schule dein Team, Bedrohungen zu erkennen und Cyberangriffen vorzubeugen.</p>
-                </div>
+            <div class="section-header">
+                <span class="section-label">UNSERE KOMPETENZEN</span>
+                <h2 class="section-title">Corporate Cyber Security</h2>
+                <p class="section-description">
+                    Als zuverlässiger Business-Partner identifizieren, minimieren und verhindern wir umfassend die Cyberrisiken unserer Kunden − damit sie sich auf ihr Kerngeschäft fokussieren können.
+                </p>
             </div>
-        </div>
-    </section>
-
-    <!-- Red Teaming Section -->
-    <section id="redteaming" class="red-teaming">
-        <div class="container">
-            <div class="content-block">
-                <img src="redteaming-graphic.png" alt="Red Teaming Graphic">
-                <div class="text-content">
-                    <h3>Red Teaming Operations: Teste deine Grenzen</h3>
-                    <p>Unsere erfahrenen Red Teams simulieren hochentwickelte, realistische Cyberangriffe, um die Effektivität deiner Sicherheitsmaßnahmen und die Reaktion deines Blue Teams zu testen. Wir gehen über traditionelle Penetrationstests hinaus und bewerten deine Widerstandsfähigkeit aus der Perspektive eines entschlossenen Angreifers.</p>
-                    <ul>
-                        <li>Verdeckte und gezielte Angriffe</li>
-                        <li>Bewertung von Personal, Prozessen und Technologie</li>
-                        <li>Identifikation von unbekannten Schwachstellen</li>
-                        <li>Messung der Reaktionsfähigkeit deines Sicherheitsteams</li>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <img src="assets/images/icon-redteaming.png" alt="Red Teaming">
+                    </div>
+                    <h3 class="service-title">Red Teaming Operations</h3>
+                    <p class="service-description">
+                        Simuliere reale Angriffe, decke Schwachstellen auf und stärke deine Verteidigung durch professionelle Red Team Assessments.
+                    </p>
+                    <ul class="service-features">
+                        <li>Penetrationstests</li>
+                        <li>Social Engineering</li>
+                        <li>Physical Security Tests</li>
+                        <li>Full-Scope Assessments</li>
                     </ul>
-                    <a href="#contact" class="btn btn-secondary">Jetzt anfragen</a>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- C2-as-a-Service Section -->
-    <section id="c2" class="c2-service">
-        <div class="container">
-            <div class="content-block reverse">
-                <div class="text-content">
-                    <h3>C2-as-a-Service: Robust & Diskret</h3>
-                    <p>Für Red Team Operationen und Sicherheitsexperten bieten wir eine maßgeschneiderte Command-and-Control (C2)-Infrastruktur. Unsere C2-Lösungen sind hochgradig anpassbar, resilient gegen Erkennung und gewährleisten die verdeckte Steuerung deiner Operationen, während du dich auf das Wesentliche konzentrierst.</p>
-                    <ul>
-                        <li>Schwer erkennbare Infrastruktur</li>
-                        <li>Flexibel anpassbar an Operationsbedürfnisse</li>
-                        <li>Hohe Verfügbarkeit und Redundanz</li>
-                        <li>Global verteilte Knotenpunkte</li>
+                <div class="service-card featured">
+                    <div class="featured-badge">BELIEBT</div>
+                    <div class="service-icon">
+                        <img src="assets/images/icon-c2.png" alt="C2 as a Service">
+                    </div>
+                    <h3 class="service-title">C2-as-a-Service</h3>
+                    <p class="service-description">
+                        Hochskalierbare Command & Control Infrastruktur in der Cloud. Perfekt für Red Team Operationen und Security Testing.
+                    </p>
+                    <ul class="service-features">
+                        <li>Managed C2 Infrastructure</li>
+                        <li>Multi-Tenant Support</li>
+                        <li>99.9% Uptime SLA</li>
+                        <li>Advanced Evasion</li>
                     </ul>
-                    <a href="#contact" class="btn btn-secondary">Details anfordern</a>
                 </div>
-                <img src="c2-graphic.png" alt="C2 Graphic">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <img src="assets/images/icon-vapt.png" alt="VAPT">
+                    </div>
+                    <h3 class="service-title">Vulnerability Assessment</h3>
+                    <p class="service-description">
+                        Umfassende Schwachstellenanalyse deiner IT-Infrastruktur mit modernsten Tools und Methoden.
+                    </p>
+                    <ul class="service-features">
+                        <li>Network Scanning</li>
+                        <li>Web Application Testing</li>
+                        <li>Cloud Security Assessment</li>
+                        <li>Compliance Checks</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <img src="assets/images/icon-training.png" alt="Training">
+                    </div>
+                    <h3 class="service-title">Security Training</h3>
+                    <p class="service-description">
+                        Praxisorientierte Schulungen für dein Security-Team. Von Basics bis Advanced Offensive Security.
+                    </p>
+                    <ul class="service-features">
+                        <li>Red Team Training</li>
+                        <li>Threat Hunting</li>
+                        <li>Incident Response</li>
+                        <li>Custom Workshops</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Call to Action Section -->
-    <section class="cta">
+    <!-- Principles Section -->
+    <section id="principles" class="principles">
         <div class="container">
-            <h3>Bereit für maximale Sicherheit?</h3>
-            <p>Kontaktiere uns für eine individuelle Beratung und ein unverbindliches Angebot.</p>
-            <a href="#contact" class="btn btn-primary">Kontakt aufnehmen</a>
+            <div class="section-header">
+                <span class="section-label">DISCOVER // IMPROVE // PREVAIL</span>
+                <h2 class="section-title">Prinzipien, die Wirkung zeigen</h2>
+            </div>
+            <div class="principles-grid">
+                <div class="principle-card">
+                    <div class="principle-number">01</div>
+                    <div class="principle-icon">🔍</div>
+                    <h3 class="principle-title">Discover</h3>
+                    <p class="principle-description">
+                        Analysieren Sie Ihre Angriffsflächen und schützen Sie Ihre Daten vor dem Darknet. Mit unseren fortschrittlichen Plattformen unterstützen wir die Analyse von Schwachstellen, die von Angreifern ausgenutzt werden könnten.
+                    </p>
+                </div>
+                <div class="principle-card">
+                    <div class="principle-number">02</div>
+                    <div class="principle-icon">⚡</div>
+                    <h3 class="principle-title">Improve</h3>
+                    <p class="principle-description">
+                        Kontinuierliche Optimierung von IT-Sicherheit. Gemeinsam verbessern wir punktgenau die Leistungsfähigkeit Ihrer vorhandenen Security Controls und -Prozesse basierend auf den zuvor gewonnenen Erkenntnissen.
+                    </p>
+                </div>
+                <div class="principle-card">
+                    <div class="principle-number">03</div>
+                    <div class="principle-icon">🛡️</div>
+                    <h3 class="principle-title">Prevail</h3>
+                    <p class="principle-description">
+                        Schützen Sie Ihre IT und OT mit hochwertiger Sicherheitstechnologie. Nur wer die Dialektik seiner Schwachstellen versteht, kann modernen Cyberangriffen standhalten und regulatorische Anforderungen erfüllen.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="why-us">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Fünf Gründe, die für Cyber Shield sprechen</h2>
+                <p class="section-description">
+                    Cyber Shield ist Ihr Partner für den Einsatz von KI-gestützter Cybersecurity und unterstützt Sie zudem bei der Erfüllung regulatorischer Vorgaben.
+                </p>
+            </div>
+            <div class="reasons-grid">
+                <div class="reason-card">
+                    <div class="reason-icon">💡</div>
+                    <h3>Innovation</h3>
+                    <p>Führend in wegweisenden Cybersicherheitslösungen</p>
+                </div>
+                <div class="reason-card">
+                    <div class="reason-icon">💪</div>
+                    <h3>Robustheit</h3>
+                    <p>Stärkung der Cybersicherheit gegen komplexe Bedrohungen</p>
+                </div>
+                <div class="reason-card">
+                    <div class="reason-icon">🎯</div>
+                    <h3>Präzision</h3>
+                    <p>Nutzung von KI für präzise Sicherheitsstrategien</p>
+                </div>
+                <div class="reason-card">
+                    <div class="reason-icon">⚡</div>
+                    <h3>Proaktivität</h3>
+                    <p>Früherkennung und proaktive Abwehr von Bedrohungen</p>
+                </div>
+                <div class="reason-card">
+                    <div class="reason-icon">🌱</div>
+                    <h3>Nachhaltigkeit</h3>
+                    <p>Kontinuierlicher Schutz für langfristige Sicherheit</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="team">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">LERNEN SIE UNS KENNEN</span>
+                <h2 class="section-title">Ihre Ansprechpartner für umfassenden Schutz</h2>
+            </div>
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-image">
+                        <div class="team-avatar">MS</div>
+                    </div>
+                    <h3 class="team-name">Markus Schmitt</h3>
+                    <p class="team-role">CEO Cyber Shield</p>
+                    <div class="team-social">
+                        <a href="#" class="social-link">LinkedIn</a>
+                        <a href="#" class="social-link">Email</a>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="team-image">
+                        <div class="team-avatar">CB</div>
+                    </div>
+                    <h3 class="team-name">Christoph Bernhardt</h3>
+                    <p class="team-role">CTO Cyber Shield</p>
+                    <div class="team-social">
+                        <a href="#" class="social-link">LinkedIn</a>
+                        <a href="mailto:vertrieb@cyber-shield.org" class="social-link">Email</a>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="team-image">
+                        <div class="team-avatar">MV</div>
+                    </div>
+                    <h3 class="team-name">Melinda Varga</h3>
+                    <p class="team-role">Marketing Cyber Shield</p>
+                    <div class="team-social">
+                        <a href="#" class="social-link">LinkedIn</a>
+                        <a href="#" class="social-link">Email</a>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="team-image">
+                        <div class="team-avatar">FF</div>
+                    </div>
+                    <h3 class="team-name">Fabian Flock</h3>
+                    <p class="team-role">CCO Cyber Shield</p>
+                    <div class="team-social">
+                        <a href="#" class="social-link">LinkedIn</a>
+                        <a href="#" class="social-link">Email</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Contact Section -->
     <section id="contact" class="contact">
+        <div class="contact-overlay"></div>
         <div class="container">
-            <h3>Kontaktiere Uns</h3>
-            <p>Wir freuen uns auf deine Nachricht!</p>
-            <form>
-                <div class="form-group">
-                    <label for="name">Name:</label>
-                    <input type="text" id="name" name="name" required>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <span class="section-label">WIR VALIDIEREN IHRE IT SICHERHEIT</span>
+                    <h2 class="section-title">Lassen Sie uns über Ihre Sicherheit sprechen!</h2>
+                    <p class="contact-description">
+                        Kontaktieren Sie uns für eine persönliche Beratung. Erfahren Sie mehr über die umfassenden Sicherheitslösungen von Cyber Shield und stärken Sie Ihre Cybersicherheit auf allen Ebenen.
+                    </p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">📧</div>
+                            <div class="contact-text">
+                                <h4>Email</h4>
+                                <a href="mailto:vertrieb@cyber-shield.org">vertrieb@cyber-shield.org</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">📱</div>
+                            <div class="contact-text">
+                                <h4>Telefon</h4>
+                                <a href="tel:+491742601741">+49 174 260 1741</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cta-person">
+                        <div class="cta-avatar">CB</div>
+                        <div class="cta-text">
+                            <strong>Christoph Bernhardt</strong>
+                            <span>CTO Cyber Shield GmbH</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="email">E-Mail:</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="message">Nachricht:</label>
-                    <textarea id="message" name="message" rows="5" required></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary">Nachricht senden</button>
-            </form>
-            <div class="contact-info">
-                <p>E-Mail: <a href="mailto:info@cyber-shield.org">info@cyber-shield.org</a></p>
-                <p>Tel: +49 (0) 123 456789</p>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer>
+    <footer class="footer">
         <div class="container">
-            <p>&copy; 2026 Cyber-Shield.org. Alle Rechte vorbehalten. | <a href="#privacy">Datenschutz</a> | <a href="#imprint">Impressum</a></p>
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="assets/images/logo.png" alt="Cyber Shield">
+                    <p>Wir schützen digitale Infrastruktur</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Services</h4>
+                        <a href="#services">Red Teaming</a>
+                        <a href="#services">C2-as-a-Service</a>
+                        <a href="#services">VAPT</a>
+                        <a href="#services">Training</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Company</h4>
+                        <a href="#mission">Mission</a>
+                        <a href="#team">Team</a>
+                        <a href="#contact">Kontakt</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Legal</h4>
+                        <a href="#">Impressum</a>
+                        <a href="#">Datenschutz</a>
+                        <a href="#">AGB</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 CS Cyber Shield GmbH. Alle Rechte vorbehalten.</p>
+            </div>
         </div>
     </footer>
 
