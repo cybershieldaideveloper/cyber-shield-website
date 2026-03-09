@@ -140,7 +140,9 @@ if (heroVideo) {
     const videoObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                heroVideo.play();
+                heroVideo.play().catch(e => {
+                    console.log('Video autoplay blocked:', e);
+                });
             } else {
                 heroVideo.pause();
             }
@@ -148,6 +150,115 @@ if (heroVideo) {
     }, { threshold: 0.25 });
     
     videoObserver.observe(heroVideo);
+    
+    // Check if video loaded
+    heroVideo.addEventListener('error', () => {
+        console.log('Video failed to load, using particle animation');
+        heroVideo.style.display = 'none';
+    });
+}
+
+// ===================================
+// PARTICLE ANIMATION (Fallback)
+// ===================================
+const canvas = document.getElementById('particle-canvas');
+if (canvas) {
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+    let animationId;
+    
+    function resizeCanvas() {
+        canvas.width = canvas.offsetWidth;
+        canvas.height = canvas.offsetHeight;
+    }
+    
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+    
+    class Particle {
+        constructor() {
+            this.x = Math.random() * canvas.width;
+            this.y = Math.random() * canvas.height;
+            this.vx = (Math.random() - 0.5) * 0.5;
+            this.vy = (Math.random() - 0.5) * 0.5;
+            this.radius = Math.random() * 2 + 1;
+            this.opacity = Math.random() * 0.5 + 0.2;
+        }
+        
+        update() {
+            this.x += this.vx;
+            this.y += this.vy;
+            
+            if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+            if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+        }
+        
+        draw() {
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(245, 33, 153, ${this.opacity})`;
+            ctx.fill();
+        }
+    }
+    
+    function init() {
+        particles = [];
+        const particleCount = Math.min(Math.floor((canvas.width * canvas.height) / 15000), 100);
+        for (let i = 0; i < particleCount; i++) {
+            particles.push(new Particle());
+        }
+    }
+    
+    function connectParticles() {
+        for (let i = 0; i < particles.length; i++) {
+            for (let j = i + 1; j < particles.length; j++) {
+                const dx = particles[i].x - particles[j].x;
+                const dy = particles[i].y - particles[j].y;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+                
+                if (distance < 150) {
+                    ctx.beginPath();
+                    ctx.strokeStyle = `rgba(122, 166, 210, ${0.2 * (1 - distance / 150)})`;
+                    ctx.lineWidth = 0.5;
+                    ctx.moveTo(particles[i].x, particles[i].y);
+                    ctx.lineTo(particles[j].x, particles[j].y);
+                    ctx.stroke();
+                }
+            }
+        }
+    }
+    
+    function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
+        particles.forEach(particle => {
+            particle.update();
+            particle.draw();
+        });
+        
+        connectParticles();
+        
+        animationId = requestAnimationFrame(animate);
+    }
+    
+    init();
+    animate();
+    
+    // Stop animation when hero is not visible
+    const heroSection = document.querySelector('.hero');
+    const heroObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) {
+                cancelAnimationFrame(animationId);
+            } else {
+                animate();
+            }
+        });
+    }, { threshold: 0.1 });
+    
+    if (heroSection) {
+        heroObserver.observe(heroSection);
+    }
 }
 
 // ===================================
